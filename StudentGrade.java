@@ -33,10 +33,11 @@ public class StudentGrade{
             ArrayList<student> Students=new ArrayList<>();
             System.out.print("Enter number of students in class: ");
             int noOfStudents=sc.nextInt();
-            float total=0,average;
+            float total,average;
             System.out.print("Enter total no. of subjects: ");
             n=sc.nextInt();
             for(int i=0;i<noOfStudents;i++){
+                total=0;
                 System.out.println("STUDENT " +(i+1)+" DETAILS--->");
                 System.out.print("Enter student-"+(i+1)+" name: ");
                 name=sc.next();
