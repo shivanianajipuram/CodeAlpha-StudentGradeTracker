@@ -29,14 +29,15 @@ public class StudentGrade{
         String name;
         char gradescore;
         try ( //arrayList
-                Scanner sc = new Scanner(System.in)) {
+            Scanner sc = new Scanner(System.in)) {
             ArrayList<student> Students=new ArrayList<>();
             System.out.print("Enter number of students in class: ");
             int noOfStudents=sc.nextInt();
-            float total=0,average;
+            double average,total;
             System.out.print("Enter total no. of subjects: ");
             n=sc.nextInt();
             for(int i=0;i<noOfStudents;i++){
+                total=0;
                 System.out.println("STUDENT " +(i+1)+" DETAILS--->");
                 System.out.print("Enter student-"+(i+1)+" name: ");
                 name=sc.next();
@@ -48,7 +49,7 @@ public class StudentGrade{
                 for(int j=0;j<n;j++){
                     System.out.print("Subject"+(j+1)+": ");
                     grades[j]=sc.nextDouble();
-                    total+=grades[j];}
+                    total=total+ grades[j];}
                 
                 int HighestScore=90;
                 int LowestScore=30;
@@ -59,10 +60,11 @@ public class StudentGrade{
                     else if(grades[k]<=LowestScore){
                         System.out.println("Can Do better in Subject"+(k+1)+".");}
                     else{
-                        
+                            
                     }
                 }
-                average=(total)/n;
+                average=total/n;
+                System.out.println("Average: "+average);
                 if(average>=90 && average<=100){
                     System.out.println("GRADE A");
                     gradescore='A';
@@ -79,7 +81,7 @@ public class StudentGrade{
                     System.out.println("GRADE D");
                     gradescore='D';
                 }
-                else if(average>=50 && average<60){
+                else if(average>=30 && average<60){
                     System.out.println("GRADE E");
                     gradescore='E';
                 }
@@ -94,9 +96,9 @@ public class StudentGrade{
         }
     }
     static void display(ArrayList<student> Students){
-      System.out.println("  Displaying all the Gradescores of students->");
+      System.out.println("Displaying all the Gradescores of students->");
       for(student s: Students){
-      System.out.println("   Name: "+s.getName()+ "  Roll number: "+s.getRollnumb()+"  Grade: "+s.getGradeScore());
+      System.out.println("Name: "+s.getName()+ "  Roll number: "+s.getRollnumb()+"  Grade: "+s.getGradeScore());
     }
     }
 }
